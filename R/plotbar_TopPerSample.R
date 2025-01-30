@@ -26,7 +26,7 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
           taxfill = "Genus", output = "graph", x = "x_names", legend = TRUE,
           statistics = FALSE, GS = TRUE, angle = 0) {
 
-#  DEFAULT for Testing
+#  DEFAULT for Testing, can be removed
 #  ps <- readRDS("c:/software/Rproject/MicrobiomeAdds/Data/tank_milk.Rds")
 #  top <- 10
 #  relatief <- TRUE
