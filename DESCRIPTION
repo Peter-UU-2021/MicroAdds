@@ -1,6 +1,6 @@
 Package: MicroAdds
 Title: Addition to AlxR
-Version: 0.0.2.0012
+Version: 0.0.5
 Authors@R: 
     person("Peter", "Scherpenisse", , "p.scherpenisse@uu.nl", role = c("aut", "cre"))
 Description: An alternative to ps_plotbar with top per sample instead of overall top
@@ -10,3 +10,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://github.com/Peter-UU-2021/MicroAdds
 BugReports: https://github.com/Peter-UU-2021/MicroAdds/issues
+Imports: 
+    ggplot2
