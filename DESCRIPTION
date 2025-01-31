@@ -1,6 +1,6 @@
 Package: MicroAdds
 Title: Addition to AlxR
-Version: 0.0.2.0011
+Version: 0.0.2.0012
 Authors@R: 
     person("Peter", "Scherpenisse", , "p.scherpenisse@uu.nl", role = c("aut", "cre"))
 Description: An alternative to ps_plotbar with top per sample instead of overall top
