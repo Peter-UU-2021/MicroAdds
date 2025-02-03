@@ -11,8 +11,8 @@
 #' @param taxrank the rank for the top. Mostly Species is used (is default)
 #' @param taxfill the color in the graph
 #' @param x the x-axis names. If unspecified the ps object names will be used
-#' @param legend: Do you want a legend (TRUE or FALSE)? Legends can be very long and therefore can be omitted when set to FALSE
-#' @param legend.position: Where is the legend? (left, right, bottom, top, or none). Legend=TRUE
+#' @param legend.position: Where is the legend? (left, right, bottom, top, or none). Legends can be very large
+#'
 #' @param choosing "none" is equal to set legend=FALSE
 #' @param GS Make a GenusSpecies rank in the ps? (TRUE or FALSE). Default to TRUE, makes a GenusSpecies rank
 #' @param statistics: Do yoiu want (relative) reads to be plotted (TRUE/FALSE)
@@ -25,8 +25,8 @@
 
 
 plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Species",
-          taxfill = "Genus", output = "graph", x = "x_names", legend = TRUE,
-          legend.position="right", statistics = FALSE, GS = TRUE, angle = 0) {
+          taxfill = "Genus", output = "graph", x = "x_names", legend.position="right",
+          statistics = FALSE, GS = TRUE, angle = 0) {
 
 #  DEFAULT for Testing, can be removed
 #  ps <- readRDS("c:/software/Rproject/MicrobiomeAdds/Data/tank_milk.Rds")
@@ -37,7 +37,6 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
 #  taxfill <- "Genus"
 #  output <- "graph"
 #  x <- "x_names"
-#  legend <- FALSE
 #  legend.position="right"
 #  GS <- TRUE
 #  angle <- 90
@@ -195,10 +194,9 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
     print("No statistics added")
   }
 
-  ## Add a legend? legends can be very large and preventing to see a graph
-  if (!legend) {
-    pl <- pl + theme(legend.position = legend.position)
-  }
+  ## The legend legends can be very large and preventing to see a graph by setting to "none"
+  pl <- pl + theme(legend.position = legend.position)
+
 
   ## output a plot or a table where the plot is made off
   if (output == "table") {
