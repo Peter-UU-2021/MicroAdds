@@ -197,6 +197,11 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
   ## The legend legends can be very large and preventing to see a graph by setting to "none"
   pl <- pl + theme(legend.position = legend.position)
 
+  if (relatief==TRUE){
+    pl <- pl + ylab("Relative Abundance")
+  } else {
+      pl <- pl + ylab("Abundance")
+    }
 
   ## output a plot or a table where the plot is made off
   if (output == "table") {
