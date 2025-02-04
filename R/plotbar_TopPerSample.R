@@ -1,4 +1,4 @@
-' @title plotbar_TopPerSample
+#' @title plotbar_TopPerSample
 #'
 #' @description
 #' This Function plots a bar with a top(i) is per sample instead of an overall overall top(i).
@@ -31,13 +31,13 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
 #  DEFAULT for Testing, can be removed
 #  ps <- readRDS("c:/software/Rproject/MicrobiomeAdds/Data/tank_milk.Rds")
 #  top <- 10
-#  relatief <- TRUE
+#  relatief <- FALSE
 #  statistics <- TRUE
 #  taxrank <- "Species"
 #  taxfill <- "Genus"
 #  output <- "graph"
 #  x <- "x_names"
-#  legend.position="right"
+# legend.position="right"
 #  GS <- TRUE
 #  angle <- 90
 
@@ -177,6 +177,7 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
     theme_minimal() +
     geom_col(col = "black") +
     ylab("Abundance") +
+    labs(fill=paste(sym(taxfill),"{fill color}"))+
     theme(axis.text.x = element_text(angle = angle, vjust = 0.5, hjust = 1))
 
   if (statistics == TRUE) {
@@ -187,21 +188,23 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
         max_y <- max_top
         print(paste("Max y-value",max_y))
       }  ## if relatief then 100% scale set
-    pl <- pl + coord_cartesian(ylim=c(0, max_y*1.5))
+    pl <- pl + coord_cartesian(ylim=c(0, max_y*1.2))
     pl <- pl +
-      geom_text(data=uitvoer3, aes(label=stat_text, x=SampleName, y=max_y * 1.2, angle=90), size=3)
+      geom_text(data=uitvoer3, aes(label=stat_text, x=SampleName, y=max_y * 1.15, angle=90), size=3)
   } else {
     print("No statistics added")
   }
 
   ## The legend legends can be very large and preventing to see a graph by setting to "none"
-  pl <- pl + theme(legend.position = legend.position)
+  pl <- pl +
+    theme(legend.position = legend.position)
+
 
   if (relatief==TRUE){
-    pl <- pl + ylab("Relative Abundance")
+    pl <- pl + ylab("Relative Abundance (%)")
   } else {
-      pl <- pl + ylab("Abundance")
-    }
+      pl <- pl + ylab("Absolute Abundance (reads)")
+  }
 
   ## output a plot or a table where the plot is made off
   if (output == "table") {
