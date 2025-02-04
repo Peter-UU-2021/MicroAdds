@@ -21,6 +21,7 @@
 #' @export
 #' @examples
 #' plotbar_TopPerSample(ps, taxfill="Family", taxrank="Genus", top=10)
+#' plotbar_TopPerSample(ps, taxfill="Family, relatief=FALSE, angle=90)
 
 
 
