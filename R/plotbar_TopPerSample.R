@@ -43,12 +43,12 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
 #  angle <- 90
 
 
-  library(ggplot2)
-  library(microbiome)
-  library(microbiomeutilities)
-  library(tidyverse)
-  library(stringr)
-  library(data.table)
+ # library(ggplot2)
+#  library(microbiome)
+#  library(microbiomeutilities)
+#  library(tidyverse)
+#  library(stringr)
+#  library(data.table)
 
   ## first replace the TAG
   ## ps <- add_refseq(ps, tag = "ASV")
