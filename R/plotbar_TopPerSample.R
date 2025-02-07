@@ -19,10 +19,14 @@
 #' @param angle angle for x-axis label (most likely 0 or 90°)
 #' @param output: undocumented feature what to export graph or table the graph is made of
 #' @export
-#' @examples
-#' plotbar_TopPerSample(ps, taxfill="Family", taxrank="Genus", top=10)
-#' plotbar_TopPerSample(ps, taxfill="Family, relatief=FALSE, angle=90)
+#' @examples plotbar_TopPerSample(ps, taxfill="Family", taxrank="Genus", top=10)
 
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select
+#' @importFrom dplyr left_join
+#' @importFrom tibble rownames_to_column
+#' @importFrom stringr word
+#' @importFrom phyloseq sample_data
 
 
 plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Species",
@@ -43,7 +47,7 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
 #  angle <- 90
 
 
- # library(ggplot2)
+# library(ggplot2)
 #  library(microbiome)
 #  library(microbiomeutilities)
 #  library(tidyverse)
@@ -53,7 +57,8 @@ plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Spec
   ## first replace the TAG
   ## ps <- add_refseq(ps, tag = "ASV")
   ## extract sample table and add library size in reads
-  samples <- data.frame(sample_data(ps)) %>% tibble::rownames_to_column(var = "x_naam") %>%
+  samples <- data.frame(sample_data(ps)) %>%
+    tibble::rownames_to_column(var = "x_naam") %>%
     mutate(x_name = x_naam) %>% tibble::column_to_rownames("x_naam")
   samples$LibSize = sample_sums(ps)
 
