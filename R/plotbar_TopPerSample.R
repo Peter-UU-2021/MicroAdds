@@ -24,9 +24,12 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr select
 #' @importFrom dplyr left_join
+#' @importFrom dplyr filter
 #' @importFrom tibble rownames_to_column
+#' @importFrom ggplot2 alpha
 #' @importFrom stringr word
 #' @importFrom phyloseq sample_data
+#' @importFrom phyloseq sample_sums
 
 
 plotbar_TopPerSample <- function (ps, top = 10, relatief = TRUE, taxrank = "Species",
