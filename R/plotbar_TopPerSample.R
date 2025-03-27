@@ -3,8 +3,8 @@
 #' @description
 #' This Function plots a bar with a top(i) is per sample instead of an overall overall top(i).
 #' Idea is to have higher explained reads compared to the ps_plotbar which uses overall top abundance. The functions returns a GGPLOT object.
-#' The top(i) is calculated in the taxrank, i.e if top = 5 and taxrank = "Family" the 5 most abundant families were taken. The taxfill is the color.The taxfill should
-#' be equal or higher than the taxrank
+#' The top(i) is calculated in the taxrank, i.e if top = 5 and taxrank = "Family" the 5 most abundant families were taken. The taxfill is the color.
+#' The rank of the taxfill should be equal or higher than the taxrank. taxrank="Family" and taxfill="Phylum" is correct where taxrank="Phylum" and taxfill="Family" results in "<>" signs
 #'
 #' @keywords plotbar
 #' @param ps phyloseq object to be used
@@ -17,7 +17,7 @@
 #'
 #' @param choosing "none" is equal to set legend=FALSE
 #' @param GS Make a GenusSpecies rank in the ps? (TRUE or FALSE). Default to TRUE, makes a GenusSpecies rank
-#' @param statistics: Do you want (relative) reads to be plotted (TRUE/FALSE)
+#' @param statistics: Do you want (relative) reads to be plotted (TRUE) or absolute reads (FALSE) ?
 #' @param angle angle for x-axis label (most likely 0 or 90°)
 #' @param output: undocumented feature what to export graph or table the graph is made of
 #' @export
